@@ -21,10 +21,13 @@
 
 后端：
 
+	services目录：业务逻辑层
+	dao目录：数据访问层
+
 	API -- CRUD
 
 	用户注册：
-		URL: "/api/register"
+		URL: "/api/users/register"
 		Method：'POST'
 		Param：
 			username
@@ -98,6 +101,30 @@
 				}
 			}
 
+	添加职位：
+		URL: "/api/positions/add"
+		Method: "POST"
+		Param:
+			company
+			logo
+			name
+			salary
+		Return
+			JSON {
+				res_code: 1,
+				res_error: "",
+				res_ body: {
+					status: 1,
+					data: {
+						_id,
+						company,
+						logo,
+						name,
+						salary
+					}
+				}
+			}
+
 ## 数据存储
 
 前端：
@@ -129,3 +156,15 @@
 [svg-captcha](https://www.npmjs.com/package/svg-captcha)
 
 生成svg格式的验证码
+
+## mongoose
+
+[mongoose](https://mongoosejs.com/)
+
+处理 MongoDB 数据库访问
+
+## Multer 
+
+[Multer](https://www.npmjs.com/package/multer)
+
+上传文件

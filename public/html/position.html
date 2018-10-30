@@ -18,7 +18,7 @@
 				<button class="btn btn-primary navbar-right" data-toggle="modal" data-target="#addModal" style="margin:0;padding:1px 13px;">添加</button>
 			</div>
 			
-			<table class="table table-bordered">
+			<table class="table table-bordered table-position">
 				<thead>
 					<tr>
 						<th>序号</th>
@@ -33,19 +33,21 @@
 					</tr>
 				</thead>
 				<tbody id="tbd">
-					<tr>
-						<td>01</td>
-						<td></td>
-						<td>h5讲师</td>
-						<td>千峰</td>
-						<td>5年h5开发经验</td>
-						<td>大师</td>
-						<td>成都</td>
-						<td>20000</td>
-						<td>删除</td>
-					</tr>
+					
 				</tbody>
 			</table>
+			
+			<!-- 分页页码 -->
+			<nav>
+				<ul class="pagination">
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+				</ul>
+			</nav>
+			
 		</div>
 		
 		<!-- 添加模态框 -->
@@ -59,41 +61,42 @@
 					</div>
 					
 					<div class="modal-body">
-						<form>
+						<div class="alert alert-danger hidden add-pos-error">添加职位有误</div>
+						<form class="form-add-pos">
 							<div class="form-group">
 								<label for="companyLogo">公司logo</label>
-								<input type="text" class="form-control" id="companyLogo" placeholder="请输入用户名">
+								<input type="file" class="form-control" name="companyLogo" id="companyLogo" placeholder="请输入用户名">
 							</div>
 							<div class="form-group">
 								<label for="positionName">职位名称</label>
-								<input type="text" class="form-control" id="positionName" placeholder="请输入职位名">
+								<input type="text" class="form-control" name="positionName"  id="positionName" placeholder="请输入职位名">
 							</div>
 							<div class="form-group">
 								<label for="companyName">公司名称</label>
-								<input type="text" class="form-control" id="companyName" placeholder="输入公司名">
+								<input type="text" class="form-control" name="companyName" id="companyName" placeholder="输入公司名">
 							</div>
 							<div class="form-group">
 								<label for="workExperience">工作经验</label>
-								<input type="text" class="form-control" id="workExperience" placeholder="请输入工作经验">
+								<input type="text" class="form-control" name="workExperience" id="workExperience" placeholder="请输入工作经验">
 							</div>
 							<div class="form-group">
 								<label for="positionType">职位类型</label>
-								<input type="text" class="form-control" id="positionType" placeholder="请输入职位类型">
+								<input type="text" class="form-control" name="positionType" id="positionType" placeholder="请输入职位类型">
 							</div>
 							<div class="form-group">
 								<label for="workAdders">工作地点</label>
-								<input type="text" class="form-control" id="workAdders" placeholder="请输入工作地点">
+								<input type="text" class="form-control" name="workAdders" id="workAdders" placeholder="请输入工作地点">
 							</div>
 							<div class="form-group">
 								<label for="money">岗位薪资</label>
-								<input type="number" class="form-control" id="money" placeholder="请输入岗位薪资">
+								<input type="number" class="form-control" name="money" id="money" placeholder="请输入岗位薪资">
 							</div>
 						</form>
 					</div>
 					
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-						<button type="button" class="btn btn-primary">提交</button>
+						<button type="button" class="btn btn-primary btn-add-pos">提交</button>
 					</div>
 					
 				</div>
@@ -102,9 +105,11 @@
 		
 		<script src="/lib/jquery/jquery-1.12.4.min.js"></script>
 		<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/lib/ejs/ejs.min.js"></script>
 		<script src="/js/common/login_modal.js"></script>
 		<script src="/js/common/register_modal.js"></script>
 		<script src="/js/header.js"></script>
+		<script src="/js/position/position.js"></script>
 		
 	</body>
 </html>

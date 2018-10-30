@@ -9,6 +9,7 @@ const session = require("express-session");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var positionsRouter = require('./routes/positions');
 
 var app = express();
 
@@ -32,7 +33,8 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter); // 访问 "/" 目录下的资源
-app.use('/users', usersRouter);
+app.use('/api/users', usersRouter); // 访问 "/api/users"目录下的资源
+app.use("/api/positions", positionsRouter); // 访问 "/api/positions"目录下的资源
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

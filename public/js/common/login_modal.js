@@ -58,13 +58,14 @@ $.extend(LoginModal.prototype, {
 		// serialize()序列化方法，返回一个查询字符串，登录用户名和密码的数据
 		const data = $(".form_login").serialize();
 		
-		const url = "http://rap2api.taobao.org/app/mock/86922/api/position/userLogin";
+		const url = "/api/users/login";
 		$.post(url, data, (data)=>{
 			if(data.res_body.status === 1){
 				sessionStorage.username = data.res_body.data.username;
 				location.reload();
 			}else{
 				$(".login_error").removeClass("hidden");
+				alert(data.res_body.message);
 			}
 		},"json")
 	},

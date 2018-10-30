@@ -54,7 +54,7 @@ $.extend(RegisterModal.prototype, {
 	registHandler(){
 		const data = $(".form_regist").serialize();
 		
-		const url = "http://rap2api.taobao.org/app/mock/86922/api/position/userRegist";
+		const url = "/api/users/register";
 		$.post(url, data, (data)=>{
 			if(data.res_body.status === 1){
 				sessionStorage.username = data.res_body.data.username;
