@@ -5,7 +5,7 @@ function Position() {
 
 Position.PositionRowTemplate = `
 	<tr>
-		<td><%= _id %></td>
+		<td class="id"><%= _id %></td>
 		<td><img src="<%= companyLogo %>" style="width:40px;"/></td>
 		<td><%= positionName %></td>
 		<td><%= companyName %></td>
@@ -13,30 +13,11 @@ Position.PositionRowTemplate = `
 		<td><%= positionType %></td>
 		<td><%= workAdders %></td>
 		<td><%= money %></td>
-		<td><a href="#">修改</a> <a href="#" class="del">删除</a></td>
+		<td><a href="#" class="updb" data-toggle="modal" data-target="#addModal">修改</a> <a href="#" class="del">删除</a></td>
 	</tr>
 `;
 
 $.extend(Position.prototype, {
-	
-	addListener() {
-		$(".btn-add-pos").on("click", this.addPosHandler);
-		$(".pagination").on("click", "a", $.proxy(this.loadDataHandler, this));
-		$(".pagination").on("click", "del", $.proxy(this.delPosition, this));
-	},
-	// 翻页处理
-	loadDataHandler(event) {
-		const $src = $(event.target);
-		const page = Number($src.text());
-		this.loadData(page);
-		// 标签使用类名处理
-		$src.parent("li").addClass("active").siblings("li").removeClass("active");
-	},
-	
-	delPosition(){
-		
-	},
-	
 	
 	loadData(page) {
 		page = page || 1;
@@ -49,10 +30,26 @@ $.extend(Position.prototype, {
 					html += ejs.render(Position.PositionRowTemplate, curr);
 				});
 				$(".table-position tbody").html(html);
+				$(".updb").on("click", this.upDataPosition);
 			}
 		});
 	},
 	
+	addListener() {
+		$(".btn-add-pos").on("click", this.addPosHandler);
+		$(".pagination").on("click", "a", $.proxy(this.loadDataHandler, this));
+		
+		$(".table-position tbody").on("click", ".del", $.proxy(this.delPosition, this));
+	},
+	// 翻页处理
+	loadDataHandler(event) {
+		const $src = $(event.target);
+		const page = Number($src.text());
+		this.loadData(page);
+		// 标签使用类名处理
+		$src.parent("li").addClass("active").siblings("li").removeClass("active");
+	},
+	// 添加
 	addPosHandler() {
 		// 获取表单中的数据
 		const url = "/api/positions/add";
@@ -81,6 +78,41 @@ $.extend(Position.prototype, {
 			}
 		});
 	}
+	// 删除
+	delPosition(event){
+		const src = $(event.target);
+		
+		const tr = src.parents("tr");
+		
+		const _src = tr.find(".id").text();
+		// console.log(_src);
+		
+		const url = "/api/positions/del";
+		$.ajax({
+			type: "post",
+			url: url,
+			data: {_src},
+			dataType: "json",
+			success: function(data) {
+				if (data.res_body.status === 1) {
+					// console.log(data);
+					location.reload();
+				} else { // 添加失败
+					alert("删除失败，请重试");
+				}
+			}
+		});
+	},
+	
+// 	upDataPosition(){
+// 		console.log(1);
+// 		const src = $(event.target);
+// 		console.log(src);
+// 		const tr = src.parents("tr");
+// 		
+// 		const _src = tr.find(".id").text();
+// 		console.log(_src);
+// 	}
 	
 });
 

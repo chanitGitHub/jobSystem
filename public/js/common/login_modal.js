@@ -19,11 +19,11 @@ LoginModal.ModalTemplate = `<div class="modal fade" id="loginModal" tabindex="-1
 	        <form class="form_login">
 						<div class="form-group">
 							<label for="loginUsername">用户名</label>
-							<input type="text" class="form-control" name="username" id="loginUsername" placeholder="请输入用户名">
+							<input type="text" class="form-control" name="username" id="loginUsername" value="admin" placeholder="请输入用户名">
 						</div>
 						<div class="form-group">
 							<label for="loginPassword">密码</label>
-							<input type="password" class="form-control" name="password" id="loginPassword" placeholder="请输入密码">
+							<input type="password" class="form-control" name="password" id="loginPassword" value="123456" placeholder="请输入密码">
 						</div>
 						<div class="form-group">
 							<label for="loginCode">验证码</label>

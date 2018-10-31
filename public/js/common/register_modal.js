@@ -38,7 +38,7 @@ RegisterModal.ModalTemplate = `<div class="modal fade" id="regModal" tabindex="-
 	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 	        <button type="button" class="btn btn-primary btn_regist">注册</button>
 	      </div>
-				
+
 	    </div>
 	  </div>
 	</div>`;
