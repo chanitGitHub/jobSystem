@@ -82,10 +82,8 @@ $.extend(LoginModal.prototype, {
 		const code = $(event.target).val();
 		// ajax
 		$.getJSON("/api/captcha/verify", {code}, (data)=>{
-			if (data.res_body.valid) {
-				alert("正确");
-			} else {
-				alert("验证码错误");
+			if (!data.res_body.valid) {
+				alert("验证码错误，请重试");
 			}
 		})
 	}

@@ -11,6 +11,9 @@ const UserServices = {
 							if (data.length === 1) { // 存在与查找用户名相关的对象
 								// 比较密码
 								if (password === data[0].password) { // 密码一致
+									
+									req.session.loginUser = username;
+								
 									res.json({
 										res_code: 1,
 										res_error:"",
@@ -63,6 +66,8 @@ const UserServices = {
 					  .then((data)=>{
 						console.log(data);
 						res.json({res_code:1, res_error:"", res_body:{status: 1, message:"success", data:{username: data.username}}});
+						
+						req.session.loginUser = username;
 					  })
 					  .catch((err)=>{
 						console.log(err);
@@ -75,7 +80,14 @@ const UserServices = {
 	},
 	
 	logout(req, res, next) {
-
+		req.session.loginUser = null;
+		res.json({
+			res_code:1,
+			res_error:"",
+			res_body:{
+				status:1
+			}
+		})
 	}
 	
 }

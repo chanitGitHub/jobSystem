@@ -13,7 +13,7 @@ Position.PositionRowTemplate = `
 		<td><%= positionType %></td>
 		<td><%= workAdders %></td>
 		<td><%= money %></td>
-		<td><a href="#">修改</a> <a href="#">删除</a></td>
+		<td><a href="#">修改</a> <a href="#" class="del">删除</a></td>
 	</tr>
 `;
 
@@ -22,6 +22,7 @@ $.extend(Position.prototype, {
 	addListener() {
 		$(".btn-add-pos").on("click", this.addPosHandler);
 		$(".pagination").on("click", "a", $.proxy(this.loadDataHandler, this));
+		$(".pagination").on("click", "del", $.proxy(this.delPosition, this));
 	},
 	// 翻页处理
 	loadDataHandler(event) {
@@ -31,6 +32,11 @@ $.extend(Position.prototype, {
 		// 标签使用类名处理
 		$src.parent("li").addClass("active").siblings("li").removeClass("active");
 	},
+	
+	delPosition(){
+		
+	},
+	
 	
 	loadData(page) {
 		page = page || 1;

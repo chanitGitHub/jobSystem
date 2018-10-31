@@ -53,7 +53,9 @@ const PositionService = {
 							res_body: {}
 						});
 					});
-	}
+	},
+	
+	delPosition(){}
 
 };
 

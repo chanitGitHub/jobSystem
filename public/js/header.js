@@ -67,7 +67,7 @@ $.extend(Header.prototype, {
 	logoutHandler(){
 		console.log(1);
 		sessionStorage.removeItem("username");
-		$.getJSON("http://rap2api.taobao.org/app/mock/86922/api/position/userLogout", (data)=>{
+		$.getJSON("/api/users/logout", (data)=>{
 			if(data.res_body.status === 1){
 				location.reload();
 			}
