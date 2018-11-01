@@ -32,20 +32,20 @@ app.use(session({
   cookie: { maxAge: 30 * 60 * 1000 }
 }));
 
-//简单用户权限认证
-// app.use(function(req, res, next) {
-//   const {url} = req;
-//   const URL = urlModule.parse(url);
-//   const pathname = URL.pathname;
-//   if (pathname.indexOf("position") !== -1) {
-//     const user = req.session.loginUser;
-//     if (!user) {
-//       res.redirect("/");
-//       return;
-//     }
-//   }
-//   next();
-// });
+简单用户权限认证
+app.use(function(req, res, next) {
+  const {url} = req;
+  const URL = urlModule.parse(url);
+  const pathname = URL.pathname;
+  if (pathname.indexOf("position") !== -1) {
+    const user = req.session.loginUser;
+    if (!user) {
+      res.redirect("/");
+      return;
+    }
+  }
+  next();
+});
 
 
 app.use(express.static(path.join(__dirname, 'public')));
