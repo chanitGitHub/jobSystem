@@ -30,10 +30,14 @@ router.post("/add", upload.single("companyLogo"), PositionService.add);
 // "/api/positions/find_by_page?page=5"
 router.get("/find_by_page", PositionService.findByPage)
 
-// 修改职位
-router.post("/updata", PositionService.del);
-
 // 删除职位
 router.post("/del", PositionService.del);
+
+// 按id查询职位
+// "/api/positions/find_by_page?page=5"
+router.get("/find_by_id", PositionService.findById);
+
+// 修改职位
+router.post("/updata", upload.single("companyLogo"), PositionService.upData);
 
 module.exports = router;

@@ -57,7 +57,7 @@
 					
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">职位信息</h4>
+						<h4 class="modal-title" id="myModalLabel">添加职位信息</h4>
 					</div>
 					
 					<div class="modal-body">
@@ -65,31 +65,31 @@
 						<form class="form-add-pos">
 							<div class="form-group">
 								<label for="companyLogo">公司logo</label>
-								<input type="file" class="form-control" name="companyLogo" id="companyLogo" placeholder="请输入用户名">
+								<input type="file" class="form-control" name="companyLogo" id="companyLogo" value="">
 							</div>
 							<div class="form-group">
 								<label for="positionName">职位名称</label>
-								<input type="text" class="form-control" name="positionName"  id="positionName" placeholder="请输入职位名">
+								<input type="text" class="form-control" name="positionName"  id="positionName" value="" placeholder="请输入职位名">
 							</div>
 							<div class="form-group">
 								<label for="companyName">公司名称</label>
-								<input type="text" class="form-control" name="companyName" id="companyName" placeholder="输入公司名">
+								<input type="text" class="form-control" name="companyName" id="companyName" value="" placeholder="输入公司名">
 							</div>
 							<div class="form-group">
 								<label for="workExperience">工作经验</label>
-								<input type="text" class="form-control" name="workExperience" id="workExperience" placeholder="请输入工作经验">
+								<input type="text" class="form-control" name="workExperience" id="workExperience" value="" placeholder="请输入工作经验">
 							</div>
 							<div class="form-group">
 								<label for="positionType">职位类型</label>
-								<input type="text" class="form-control" name="positionType" id="positionType" placeholder="请输入职位类型">
+								<input type="text" class="form-control" name="positionType" id="positionType" value="" placeholder="请输入职位类型">
 							</div>
 							<div class="form-group">
 								<label for="workAdders">工作地点</label>
-								<input type="text" class="form-control" name="workAdders" id="workAdders" placeholder="请输入工作地点">
+								<input type="text" class="form-control" name="workAdders" id="workAdders" value="" placeholder="请输入工作地点">
 							</div>
 							<div class="form-group">
 								<label for="money">岗位薪资</label>
-								<input type="number" class="form-control" name="money" id="money" placeholder="请输入岗位薪资">
+								<input type="number" class="form-control" name="money" id="money" value="" placeholder="请输入岗位薪资">
 							</div>
 						</form>
 					</div>
@@ -102,6 +102,61 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- 修改模态框 -->
+		<div class="modal fade" id="updataModal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">修改职位信息</h4>
+					</div>
+					
+					<div class="modal-body">
+						<div class="alert alert-danger hidden add-pos-error">修改职位信息失败</div>
+						<form class="form-updata-pos">
+							<div class="form-group">
+								<label for="updataLogo">公司logo</label> <img src="" />
+								<input type="file" class="form-control" name="companyLogo" id="updataLogo" value="">
+								<input type="text" class="hidden" name="positionId" id="positionId" value="">
+							</div>
+							<div class="form-group">
+								<label for="updataPosition">职位名称</label>
+								<input type="text" class="form-control" name="positionName"  id="updataPosition" value="" placeholder="请输入职位名">
+							</div>
+							<div class="form-group">
+								<label for="updataCompany">公司名称</label>
+								<input type="text" class="form-control" name="companyName" id="updataCompany" value="" placeholder="输入公司名">
+							</div>
+							<div class="form-group">
+								<label for="updataExperience">工作经验</label>
+								<input type="text" class="form-control" name="workExperience" id="updataExperience" value="" placeholder="请输入工作经验">
+							</div>
+							<div class="form-group">
+								<label for="updataType">职位类型</label>
+								<input type="text" class="form-control" name="positionType" id="updataType" value="" placeholder="请输入职位类型">
+							</div>
+							<div class="form-group">
+								<label for="updataAdders">工作地点</label>
+								<input type="text" class="form-control" name="workAdders" id="updataAdders" value="" placeholder="请输入工作地点">
+							</div>
+							<div class="form-group">
+								<label for="updataMoney">岗位薪资</label>
+								<input type="number" class="form-control" name="money" id="updataMoney" value="" placeholder="请输入岗位薪资">
+							</div>
+						</form>
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" class="btn btn-primary btn-updata-pos">提交修改</button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
 		
 		<script src="/lib/jquery/jquery-1.12.4.min.js"></script>
 		<script src="/lib/bootstrap/js/bootstrap.min.js"></script>

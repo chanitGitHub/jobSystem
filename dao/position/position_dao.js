@@ -16,8 +16,12 @@ const PositionDao = {
 		return Position.remove({_id:_src});
 	},
 	
-	updata(){
-		
+	findById(id){
+		return Position.find({_id:id});
+	},
+	
+	updata(positionId,upd){
+		return Position.findOneAndUpdate({_id:positionId},upd); // update() 也可以
 	}
 	
 }
